@@ -1,0 +1,109 @@
+<form
+  class="d-flex flex-column col-md-3"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name"
+      formControlName="name"
+    />
+    <div
+      *ngIf="
+        controls.name.invalid && (controls.name.dirty || controls.name.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="controls.name.errors.required">Name is required</div>
+      <div *ngIf="controls.name.errors.minLength">
+        Required at least 2 characters
+      </div>
+      <div *ngIf="controls.name.errors?.pattern">
+        Please use only letters
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Age"
+      formControlName="age"
+    />
+
+    <div
+      *ngIf="
+        controls.age.invalid && (controls.age.dirty || controls.age.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="controls.age.errors.required">Age is required</div>
+      <div *ngIf="controls.age.errors.max">
+        Required less than 3 numbers
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      placeholder="Enter email"
+      formControlName="email"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    >
+
+    <div
+      *ngIf="
+        controls.email.invalid &&
+        (controls.email.dirty || controls.email.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="controls.email.errors.required">Email is required</div>
+      <div *ngIf="controls.email.errors.email">
+        Must be a valid email
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="Password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <div
+      *ngIf="
+        controls.password.invalid &&
+        (controls.password.dirty || controls.password.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="controls.password.errors.required">password is required</div>
+      <div *ngIf="controls.password.errors.minLength">
+        Required at least 8 characters
+      </div>
+    </div>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary m-3">Submit</button>
+</form>

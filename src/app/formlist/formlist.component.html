@@ -1,0 +1,21 @@
+<div *ngFor="let user of users" class="d-flex flex-column align-items-center">
+  <div class="d-flex">
+    <p>Name:</p>
+    <div>{{ user.name }}</div>
+  </div>
+
+  <div class="d-flex">
+    <p>Age:</p>
+    <div>{{ user.age }}</div>
+  </div>
+
+  <div class="d-flex">
+    <p>Email:</p>
+    <div>{{ user.email }}</div>
+  </div>
+
+  <div class="d-flex">
+    <p>Password:</p>
+    <div>{{ user.password }}</div>
+  </div>
+</div>
